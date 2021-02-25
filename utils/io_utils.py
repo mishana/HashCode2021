@@ -14,8 +14,10 @@ class OutData:
 
 
 def read_input(in_filename: str) -> InData:
+    # TODO: implement according to problem statement
     pass
 
 
 def write_output(solution: OutData, out_filename):
+    # TODO: implement according to problem statement
     pass
