@@ -11,7 +11,7 @@ OUT_SUFFIX = '.out'
 
 
 if __name__ == '__main__':
-    in_files = ['a']  # TODO: implement according to files given (only names, no suffix)
+    in_files = ['a', 'b', 'c', 'd', 'e', 'f']  # TODO: implement according to files given (only names, no suffix)
 
     for f in in_files:
         in_filename = f + IN_SUFFIX
@@ -21,8 +21,8 @@ if __name__ == '__main__':
 
         in_data = read_input(IN_DATA_FOLDER / in_filename)
         solution = optimizer.solve(in_data)
-        score = optimizer.calc_score(solution, in_data)
-        print(f'The score is: {score}')
+        # score = optimizer.calc_score(solution, in_data)
+        # print(f'The score is: {score}')
         write_output(solution, OUT_DATA_FOLDER / out_filename)
 
     pass
