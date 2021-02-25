@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from utils.io_utils import InData, OutData
 
 
+
 class Optimizer(ABC):
     """
     This is an abstract class that represents an optimizer.
