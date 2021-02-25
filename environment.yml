@@ -1,0 +1,8 @@
+name: hc2021
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - numba
