@@ -2,6 +2,7 @@ from pathlib import Path
 
 from utils.io_utils import read_input, write_output
 from optimization.optimizer import Optimizer
+from optimization.optimizer_a import OptimizerA
 
 IN_DATA_FOLDER = Path('data') / 'input'
 OUT_DATA_FOLDER = Path('data') / 'output'
@@ -10,13 +11,13 @@ OUT_SUFFIX = '.out'
 
 
 if __name__ == '__main__':
-    in_files = []  # TODO: implement according to files given (only names, no suffix)
+    in_files = ['a']  # TODO: implement according to files given (only names, no suffix)
 
     for f in in_files:
         in_filename = f + IN_SUFFIX
         out_filename = f + OUT_SUFFIX
 
-        optimizer = Optimizer()  # TODO: Optimizer is Abstract! change with a concrete one
+        optimizer = OptimizerA()  # TODO: Optimizer is Abstract! change with a concrete one
 
         in_data = read_input(IN_DATA_FOLDER / in_filename)
         solution = optimizer.solve(in_data)
