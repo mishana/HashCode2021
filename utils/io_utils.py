@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Tuple
 
 
 @dataclass
@@ -29,9 +29,16 @@ class InData:
 
 
 @dataclass
+class Schedule:
+    i: int  # the ID of the intersection
+    E: int  # number of incoming streets in the schedule
+    streets_and_times: List[Tuple[str, int]]  # for each street in the schedule store name and time it has a green light
+
+
+@dataclass
 class OutData:
-    # TODO: implement according to problem statement
-    pass
+    A: int  # number of intersections with schedule
+    schedules: List[Schedule]
 
 
 def read_input(in_filename: str) -> InData:
@@ -60,5 +67,12 @@ def read_input(in_filename: str) -> InData:
 
 
 def write_output(solution: OutData, out_filename):
-    # TODO: implement according to problem statement
-    pass
+    with open(out_filename, 'w') as f:
+        f.write(str(solution.A) + '\n')
+
+        for schedule in solution.schedules:
+            f.write(str(schedule.i) + '\n')
+            f.write(str(schedule.E) + '\n')
+
+            for s, t in schedule.streets_and_times:
+                f.write(f'{s} {t}\n')
