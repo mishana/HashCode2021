@@ -1,14 +1,12 @@
 from pathlib import Path
 
-from utils.io_utils import read_input, write_output
-from optimization.optimizer import Optimizer
 from optimization.optimizer_a import OptimizerA
+from utils.io_utils import read_input, write_output
 
 IN_DATA_FOLDER = Path('data') / 'input'
 OUT_DATA_FOLDER = Path('data') / 'output'
 IN_SUFFIX = '.txt'
 OUT_SUFFIX = '.out'
-
 
 if __name__ == '__main__':
     in_files = ['a', 'b', 'c', 'd', 'e', 'f']  # TODO: implement according to files given (only names, no suffix)
