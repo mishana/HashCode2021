@@ -1,8 +1,8 @@
 from pathlib import Path
 
 from optimization.optimizer_a import OptimizerA
-from utils.io_utils import read_input, write_output, InData
 from simulation.simulator import Simulator, SimulationResult
+from utils.io_utils import read_input, write_output, InData
 
 IN_DATA_FOLDER = Path('data') / 'input'
 OUT_DATA_FOLDER = Path('data') / 'output'
