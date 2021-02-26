@@ -1,12 +1,18 @@
 from pathlib import Path
 
 from optimization.optimizer_a import OptimizerA
-from utils.io_utils import read_input, write_output
+from utils.io_utils import read_input, write_output, InData
+from simulation.simulator import Simulator, SimulationResult
 
 IN_DATA_FOLDER = Path('data') / 'input'
 OUT_DATA_FOLDER = Path('data') / 'output'
 IN_SUFFIX = '.txt'
 OUT_SUFFIX = '.out'
+
+
+def calc_score(simulation_result: SimulationResult, in_data: InData):
+    return sum(in_data.F + (in_data.D - T) for T in simulation_result.finished_cars_times if T <= in_data.D)
+
 
 if __name__ == '__main__':
     in_files = ['a', 'b', 'c', 'd', 'e', 'f']  # TODO: implement according to files given (only names, no suffix)
@@ -19,8 +25,12 @@ if __name__ == '__main__':
 
         in_data = read_input(IN_DATA_FOLDER / in_filename)
         solution = optimizer.solve(in_data)
-        # score = optimizer.calc_score(solution, in_data)
-        # print(f'The score is: {score}')
+
+        simulator = Simulator(in_data=in_data, solution=solution)
+        simulation_result = simulator.simulate()
+
+        score = calc_score(simulation_result, in_data)
+        print(f'{in_filename}: The score is: {score}')
         write_output(solution, OUT_DATA_FOLDER / out_filename)
 
     pass
