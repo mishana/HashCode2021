@@ -82,8 +82,16 @@ class OptimizerA(Optimizer):
                     if len(streets_order_of_arrival) == len(intersection.incoming_streets_anytime):
                         break
 
+                # if id == 499:
+                #     streets_and_times = [(street_name, 1)
+                #                          for street_name in streets_order_of_arrival]
+                # else:
+                #     streets_and_times = [(street_name, min(
+                #         (num_arrivals_per_street[street_name] // num_arrivals_per_street[min_arrival_street]), in_data.D))
+                #                          for street_name in streets_order_of_arrival]
+
                 streets_and_times = [(street_name, min(
-                    (num_arrivals_per_street[street_name] // num_arrivals_per_street[min_arrival_street]), in_data.D))
+                    (num_arrivals_per_street[street_name] // num_arrivals_per_street[min_arrival_street]), 5))
                                      for street_name in streets_order_of_arrival]
 
                 schedules.append(Schedule(i=id, E=len(streets_and_times), streets_and_times=streets_and_times))
